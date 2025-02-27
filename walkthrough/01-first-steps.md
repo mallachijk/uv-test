@@ -122,4 +122,4 @@ total 4.0K
 -rw-r--r-- 1 root root  0 Feb 26 19:52 py.typed
 ```
 
-Hmm, we have our directory
+Now we have our directory.
