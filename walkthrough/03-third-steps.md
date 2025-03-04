@@ -62,3 +62,10 @@ $ du -h -d 1 $(uv cache dir)
 1.4M    C:\Users\jakub\AppData\Local\uv\cache/wheels-v4
 898M    C:\Users\jakub\AppData\Local\uv\cache
 ```
+
+
+
+
+# TODO:
+
+Also [Microsoft already kinda endorses it](https://learn.microsoft.com/en-us/azure/app-service/configure-language-python#using-uv).
