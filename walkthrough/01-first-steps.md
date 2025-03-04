@@ -18,14 +18,13 @@ winget install --id=astral-sh.uv  -e
 ```
 
 For now let's just quickly see what is available
-```
+```bash
 $ uv -h
 ```
 
 ## Python
 
 Ok, there is this python command, what does it do?
-
 ```bash
 $ uv python list
 cpython-3.14.0a5+freethreaded-linux-x86_64-gnu    <download available>
@@ -50,7 +49,6 @@ pypy-3.7.13-linux-x86_64-gnu                      <download available>
 ```
 
 Huh, so there are few Python versions here. What about outside of WSL?
-
 ```bash
 $ uv python list
 cpython-3.14.0a5+freethreaded-windows-x86_64-none    <download available>
@@ -74,13 +72,11 @@ pypy-3.7.13-windows-x86_64-none                      <download available>
 ## Project
 
 Ok so let's setup a project using one of the python versions that we don't have.
-
 ```bash
 $ uv init -p 3.12 --name uv-test ./uv-test
 ```
 
 This creatres a new projecte using Python 3.12 (`-p 3.12`) with name `uv-test` in folder `./uv-test`.
-
 ```bash
 $ ls -al
 drwxr-xr-x 7 root root 4096 Feb 26 19:15 .git
@@ -98,7 +94,6 @@ everything there is customizable and to start without it you can use `--bare` ar
 
 The defaults assume that you are building app (web servers, scripts, and command-line interfaces). Let's say that we want to
 create a library to be distributed and used by others.
-
 ```bash
 $ cd ..
 $ rm -r ./uv-test
