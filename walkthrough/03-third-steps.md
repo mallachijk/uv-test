@@ -6,8 +6,8 @@ Running modules from outside of environment is possible with `uv run --with ...`
 ```bash
 $ uv run --with mypy mypy ./src
 Success: no issues found in 2 source files
-$ uv tree
-# TODO - correct tree
+$ uv tree --package mypy
+Resolved 146 packages in 0.59ms
 ```
 
 Though this example is not correct because mypy should probably be added as dev dependency:
@@ -22,45 +22,50 @@ Installed 4 packages in 349ms
  + mypy-extensions==1.0.0
  + typing-extensions==4.12.2
  ~ uv-test==0.1.0 (from file:///C:/Users/jakub/repositories/uv-test)
-$ uv tree
-Resolved 12 packages in 0.74ms
+$ uv tree --depth 1
+Resolved 148 packages in 0.55ms
 uv-test v0.1.0
-├── numpy v2.2.3
-├── pandas[parquet] v2.2.3
-│   ├── numpy v2.2.3
-│   ├── python-dateutil v2.9.0.post0
-│   │   └── six v1.17.0
-│   ├── pytz v2025.1
-│   ├── tzdata v2025.1
-│   └── pyarrow v19.0.1 (extra: parquet)
-├── pyarrow v19.0.1
+├── apscheduler v3.10.4
+├── azure-identity v1.17.1
+├── databricks-sdk v0.29.0
+├── databricks-sql-connector v3.2.0
+├── fastapi[standard] v0.115.11
+├── flask v3.0.2
+├── geopandas v0.14.4
+├── mkdocs v1.6.1
+├── plotly v5.21.0
+├── pydantic v2.10.6
+├── pyodbc v5.1.0
+├── pyyaml v6.0.2
+├── scipy v1.14.1
+├── shapely v2.0.4
+├── sqlalchemy v2.0.25
+├── taipy v3.1.1
 ├── mypy v1.15.0 (group: dev)
-│   ├── mypy-extensions v1.0.0
-│   └── typing-extensions v4.12.2
-└── ruff v0.9.8 (group: dev)
+└── ruff v0.9.9 (group: dev)
 ```
 
 This command also allows you to use different Python version in isolated environment:
 ```bash
-$ uv run -p 3.12.0 --isolated --frozen -m timeit
-Installed 12 packages in 550ms
-50000000 loops, best of 5: 7.13 nsec per loop
-$ uv run -p 3.13 --isolated --frozen -m timeit
-Installed 12 packages in 447ms
-50000000 loops, best of 5: 5.7 nsec per loop
+$ uv run -p 3.12.1 --isolated --frozen -m timeit
+Installed 145 packages in 489ms
+50000000 loops, best of 5: 5.57 nsec per loop
+$ uv run -p 3.12.9 --isolated --frozen -m timeit
+Installed 145 packages in 367ms
+50000000 loops, best of 5: 8.12 nsec per loop
 ```
 
 Though a lot of it depends on caching so it can grow quite quickly:
 ```bash
-$ du -h -d 1 $(uv cache dir)
-835M    C:\Users\jakub\AppData\Local\uv\cache/archive-v0
-476K    C:\Users\jakub\AppData\Local\uv\cache/builds-v0
-8.0K    C:\Users\jakub\AppData\Local\uv\cache/environments-v2
-64K     C:\Users\jakub\AppData\Local\uv\cache/interpreter-v4
-38M     C:\Users\jakub\AppData\Local\uv\cache/sdists-v8
-25M     C:\Users\jakub\AppData\Local\uv\cache/simple-v15
-1.4M    C:\Users\jakub\AppData\Local\uv\cache/wheels-v4
-898M    C:\Users\jakub\AppData\Local\uv\cache
+$ du -h -d 1 $(uv cache dir) | sort -hr
+1.5G    /home/codespace/.cache/uv
+1.3G    /home/codespace/.cache/uv/archive-v0
+171M    /home/codespace/.cache/uv/sdists-v8
+45M     /home/codespace/.cache/uv/simple-v15
+2.1M    /home/codespace/.cache/uv/wheels-v5
+556K    /home/codespace/.cache/uv/builds-v0
+80K     /home/codespace/.cache/uv/interpreter-v4
+8.0K    /home/codespace/.cache/uv/environments-v2
 ```
 
 
