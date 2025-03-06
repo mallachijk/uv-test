@@ -27,28 +27,27 @@ $ uv -h
 Ok, there is this python command, what does it do?
 ```bash
 $ uv python list
-cpython-3.14.0a5+freethreaded-linux-x86_64-gnu    <download available>
-cpython-3.14.0a5-linux-x86_64-gnu                 <download available>
-cpython-3.13.2+freethreaded-linux-x86_64-gnu      <download available>
-cpython-3.13.2-linux-x86_64-gnu                   <download available>
-cpython-3.12.9-linux-x86_64-gnu                   /root/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/bin/python3.12
-cpython-3.11.11-linux-x86_64-gnu                  <download available>
-cpython-3.10.16-linux-x86_64-gnu                  <download available>
-cpython-3.10.12-linux-x86_64-gnu                  /usr/bin/python3.10
-cpython-3.10.12-linux-x86_64-gnu                  /usr/bin/python3 -> python3.10
-cpython-3.10.12-linux-x86_64-gnu                  /bin/python3.10
-cpython-3.10.12-linux-x86_64-gnu                  /bin/python3 -> python3.10
-cpython-3.9.21-linux-x86_64-gnu                   <download available>
-cpython-3.8.20-linux-x86_64-gnu                   <download available>
-cpython-3.7.9-linux-x86_64-gnu                    <download available>
-pypy-3.11.11-linux-x86_64-gnu                     <download available>
-pypy-3.10.19-linux-x86_64-gnu                     <download available>
-pypy-3.9.19-linux-x86_64-gnu                      <download available>
-pypy-3.8.16-linux-x86_64-gnu                      <download available>
-pypy-3.7.13-linux-x86_64-gnu                      <download available>
+cpython-3.14.0a5+freethreaded-windows-x86_64-none    <download available>
+cpython-3.14.0a5-windows-x86_64-none                 <download available>
+cpython-3.13.2+freethreaded-windows-x86_64-none      C:\Users\jakub\AppData\Roaming\uv\python\cpython-3.13.2+freethreaded-windows-x86_64-none\python.exe
+cpython-3.13.2-windows-x86_64-none                   C:\Users\jakub\AppData\Roaming\uv\python\cpython-3.13.2-windows-x86_64-none\python.exe
+cpython-3.12.9-windows-x86_64-none                   C:\Users\jakub\AppData\Roaming\uv\python\cpython-3.12.9-windows-x86_64-none\python.exe
+cpython-3.12.0-windows-x86_64-none                   C:\Users\jakub\AppData\Roaming\uv\python\cpython-3.12.0-windows-x86_64-none\python.exe
+cpython-3.11.11-windows-x86_64-none                  <download available>
+cpython-3.11.9-windows-x86_64-none                   C:\Users\jakub\AppData\Local\Programs\Python\Python311\python.exe
+cpython-3.10.16-windows-x86_64-none                  <download available>
+cpython-3.9.21-windows-x86_64-none                   C:\Users\jakub\AppData\Roaming\uv\python\cpython-3.9.21-windows-x86_64-none\python.exe
+cpython-3.8.20-windows-x86_64-none                   <download available>
+cpython-3.7.9-windows-x86_64-none                    <download available>
+pypy-3.11.11-windows-x86_64-none                     <download available>
+pypy-3.10.19-windows-x86_64-none                     <download available>
+pypy-3.9.19-windows-x86_64-none                      <download available>
+pypy-3.8.16-windows-x86_64-none                      <download available>
+pypy-3.7.13-windows-x86_64-none                      <download available>
 ```
 
-Quite some Python versions here, let's see later what does it enable!
+Quite some Python versions here, let's see later what does it enable! If you are running it on linux you will see
+linux platform specific distributions!
 
 ## Project
 
@@ -56,21 +55,21 @@ Ok so let's setup a project using one of the python versions that we don't have.
 ```bash
 $ cd ../
 $ uv init -p 3.12 --name uv-test ./uv-test-actual
-Initialized project `uv-test` at `/workspaces/uv-test-actual`
+Initialized project `uv-test` at `C:\Users\jakub\repositories\uv-test-actual`
 ```
 
 This creates a new project using Python 3.12 (`-p 3.12`) with name `uv-test` in folder `./uv-test`.
 ```bash
 $ ls -al ./uv-test-actual
-total 28
-drwxrwxrwx+ 3 codespace codespace 4096 Mar  6 18:53 .
-drwxr-xrwx+ 6 codespace root      4096 Mar  6 18:53 ..
-drwxrwxrwx+ 7 codespace codespace 4096 Mar  6 18:53 .git
--rw-rw-rw-  1 codespace codespace  109 Mar  6 18:53 .gitignore
--rw-rw-rw-  1 codespace codespace    5 Mar  6 18:53 .python-version
--rw-rw-rw-  1 codespace codespace    0 Mar  6 18:53 README.md
--rw-rw-rw-  1 codespace codespace   85 Mar  6 18:53 main.py
--rw-rw-rw-  1 codespace codespace  153 Mar  6 18:53 pyproject.toml
+total 12
+drwxr-xr-x 1 jakub 197609   0 Mar  6 20:01 ./
+drwxr-xr-x 1 jakub 197609   0 Mar  6 20:01 ../
+drwxr-xr-x 1 jakub 197609   0 Mar  6 20:01 .git/
+-rw-r--r-- 1 jakub 197609 109 Mar  6 20:01 .gitignore
+-rw-r--r-- 1 jakub 197609   5 Mar  6 20:01 .python-version
+-rw-r--r-- 1 jakub 197609  85 Mar  6 20:01 main.py
+-rw-r--r-- 1 jakub 197609 153 Mar  6 20:01 pyproject.toml
+-rw-r--r-- 1 jakub 197609   0 Mar  6 20:01 README.md
 ```
 
 This already provide quite some structure for your project, together with initialization of Git. However, almost
@@ -81,23 +80,23 @@ create a library to be distributed and used by others.
 ```bash
 $ rm -r ./uv-test-actual
 $ uv init -p 3.12 --name uv-test ./uv-test-actual --lib
-Initialized project `uv-test` at `/workspaces/uv-test-actual`
+Initialized project `uv-test` at `C:\Users\jakub\repositories\uv-test-actual`
 $ cd ./uv-test-actual
 $ ls -hlR
 .:
-total 8.0K
--rw-rw-rw-  1 codespace codespace    0 Mar  6 18:55 README.md
--rw-rw-rw-  1 codespace codespace  300 Mar  6 18:55 pyproject.toml
-drwxrwxrwx+ 3 codespace codespace 4.0K Mar  6 18:55 src
+total 1.0K
+-rw-r--r-- 1 jakub 197609 309 Mar  6 20:02 pyproject.toml
+-rw-r--r-- 1 jakub 197609   0 Mar  6 20:02 README.md
+drwxr-xr-x 1 jakub 197609   0 Mar  6 20:02 src/
 
 ./src:
-total 4.0K
-drwxrwxrwx+ 2 codespace codespace 4.0K Mar  6 18:55 uv_test
+total 0
+drwxr-xr-x 1 jakub 197609 0 Mar  6 20:02 uv_test/
 
 ./src/uv_test:
-total 4.0K
--rw-rw-rw- 1 codespace codespace 53 Mar  6 18:55 __init__.py
--rw-rw-rw- 1 codespace codespace  0 Mar  6 18:55 py.typed
+total 1.0K
+-rw-r--r-- 1 jakub 197609 53 Mar  6 20:02 __init__.py
+-rw-r--r-- 1 jakub 197609  0 Mar  6 20:02 py.typed
 ```
 
 Now we have our directory with the project already created setup for the project
