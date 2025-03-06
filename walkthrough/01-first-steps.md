@@ -73,48 +73,48 @@ pypy-3.7.13-windows-x86_64-none                      <download available>
 
 Ok so let's setup a project using one of the python versions that we don't have.
 ```bash
+$ cd ~
+$ mkdir repos
+$ cd repos
 $ uv init -p 3.12 --name uv-test ./uv-test
 ```
 
 This creatres a new projecte using Python 3.12 (`-p 3.12`) with name `uv-test` in folder `./uv-test`.
 ```bash
-$ ls -al
-drwxr-xr-x 7 root root 4096 Feb 26 19:15 .git
--rw-r--r-- 1 root root  109 Feb 26 19:07 .gitignore
--rw-r--r-- 1 root root    5 Feb 26 19:07 .python-version
-drwxr-xr-x 4 root root 4096 Feb 26 19:12 .venv
--rw-r--r-- 1 root root  253 Feb 26 19:17 README.md
--rw-r--r-- 1 root root   85 Feb 26 19:07 main.py
--rw-r--r-- 1 root root  153 Feb 26 19:07 pyproject.toml
--rw-r--r-- 1 root root  127 Feb 26 19:12 uv.lock
+$ ls -al ./uv-test
+drwxr-xr-x 1 jakub 197609   0 Mar  6 19:45 ./
+drwxr-xr-x 1 jakub 197609   0 Mar  6 19:45 ../
+drwxr-xr-x 1 jakub 197609   0 Mar  6 19:45 .git/
+-rw-r--r-- 1 jakub 197609 109 Mar  6 19:45 .gitignore
+-rw-r--r-- 1 jakub 197609   5 Mar  6 19:45 .python-version
+-rw-r--r-- 1 jakub 197609  85 Mar  6 19:45 main.py
+-rw-r--r-- 1 jakub 197609 153 Mar  6 19:45 pyproject.toml
+-rw-r--r-- 1 jakub 197609   0 Mar  6 19:45 README.md
 ```
 
-This already provide quite some stucture for your project, toghether with initalization of Git. However, almost
+This already provide quite some structure for your project, together with initialization of Git. However, almost
 everything there is customizable and to start without it you can use `--bare` argument
 
 The defaults assume that you are building app (web servers, scripts, and command-line interfaces). Let's say that we want to
 create a library to be distributed and used by others.
 ```bash
-$ cd ..
 $ rm -r ./uv-test
 $ uv init -p 3.12 --name uv-test ./uv-test --lib
 $ cd ./uv-test
-$ ls -hr
-.:
-total 12K
--rw-r--r-- 1 root root    0 Feb 26 19:52 README.md
--rw-r--r-- 1 root root  305 Feb 26 19:52 pyproject.toml
-drwxr-xr-x 3 root root 4.0K Feb 26 19:52 src
-drwxr-xr-x 2 root root 4.0K Feb 26 19:52 walkthrough
+$ ls -hlR
+total 1.0K
+-rw-r--r-- 1 jakub 197609 309 Mar  6 19:47 pyproject.toml
+-rw-r--r-- 1 jakub 197609   0 Mar  6 19:47 README.md
+drwxr-xr-x 1 jakub 197609   0 Mar  6 19:47 src/
 
 ./src:
-total 4.0K
-drwxr-xr-x 2 root root 4.0K Feb 26 19:52 uv_test
+total 0
+drwxr-xr-x 1 jakub 197609 0 Mar  6 19:47 uv_test/
 
 ./src/uv_test:
-total 4.0K
--rw-r--r-- 1 root root 53 Feb 26 19:52 __init__.py
--rw-r--r-- 1 root root  0 Feb 26 19:52 py.typed
+total 1.0K
+-rw-r--r-- 1 jakub 197609 53 Mar  6 19:47 __init__.py
+-rw-r--r-- 1 jakub 197609  0 Mar  6 19:47 py.typed
 ```
 
-Now we have our directory.
+Now we have our directory with the project already created setup for the project
