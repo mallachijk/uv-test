@@ -5,11 +5,18 @@
 In case that `.venv` was not created automatically lets run
 ```bash
 $ uv venv --seed
+Using CPython 3.12.9
+Creating virtual environment with seed packages at: .venv
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+ + pip==25.0.1
+Activate with: source .venv/bin/activate
 ```
 
 The `--seed` is there to add 'pip' to the virtual environment. We will use it later
 
-And **DON'T** activate the environment.
+And **DON'T** activate the environment yet.
 
 Instead let's just try to add a dependency
 ```bash
